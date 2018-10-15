@@ -96,7 +96,7 @@
                                   dataType: "text",
                                 })
                                 .done( function(data) {
-                                  let html1='<div style="text-align: left">'+data+'</div>\
+                                  let html1='<div id="project__name" style="text-align: left">'+data+'</div>\
                                                   <div style="text-align: right">\
                                                        <form method="POST" action={% url 'app:projectreturn' %}>\
                                                             {% csrf_token %}\
@@ -169,7 +169,7 @@
                                 })
                                 .done( function(data) {
                                   if(data.select_or_delete == "select"){
-                                  var html2='<div style="text-align: left">'+data.project_name+'</div><div style="text-align: right"><form method="POST" action={% url 'app:projectreturn' %}>{% csrf_token %}<input type="submit" class="btn btn-primary" value="確定解除"></form></div>';
+                                  var html2='<div id="project__name" style="text-align: left">'+data.project_name+'</div><div style="text-align: right"><form method="POST" action={% url 'app:projectreturn' %}>{% csrf_token %}<input type="submit" class="btn btn-primary" value="確定解除"></form></div>';
                                   $("#form1").html(html2);
                                   $("#buttons_project").html("")
                                 } else if (data.select_or_delete == "delete") {

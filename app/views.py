@@ -98,9 +98,9 @@ def projectmake(request):
   project_list=get_project_list() 
   allproject_list=get_project_list2(project_list)
   project_name= request.POST.get("project_name")
-  if not (project_name in allproject_list):      
-    if re.match("^[a-zA-Z0-9_]+$", project_name): #プロジェクト名が英数文字またはアンダーバーで構成されたものかどうか
-        if re.match("^[a-zA-Z]", project_name): #プロジェクト名の初期文字が大小英文字ではじまっているか
+  if not (project_name in allproject_list):   #プロジェクト名が既に作ったものとダブりがないかチェック   
+    if re.match("^[a-zA-Z0-9_]+$", project_name): #プロジェクト名が英数文字またはアンダーバーで構成されたものかどうかチェック
+        if re.match("^[a-zA-Z]", project_name): #プロジェクト名の初期文字が大小英文字ではじまっているかチェック
             start_project(project_name)
             settings_py_path=Path(directory_of_projects/project_name/"project"/"project"/"settings.py")
             for i in range(1000):
